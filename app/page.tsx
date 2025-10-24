@@ -4,7 +4,6 @@ import { ProblemSection } from "@/components/problem-section"
 import { SolutionSection } from "@/components/solution-section"
 import { HowItWorks } from "@/components/how-it-works"
 import { FeaturesSection } from "@/components/features-section"
-import { Testimonials } from "@/components/testimonials"
 import { Integrations } from "@/components/integrations"
 import { Roadmap } from "@/components/roadmap"
 import { CTASection } from "@/components/cta-section"
@@ -19,10 +18,9 @@ export default function Home() {
       <SolutionSection />
       <HowItWorks />
       <FeaturesSection />
-      <Testimonials />
       <Integrations />
       <Roadmap />
-      {/* <CTASection /> */}
+      <CTASection />
       <Footer />
     </main>
   )

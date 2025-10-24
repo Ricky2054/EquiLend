@@ -6,15 +6,9 @@ import { CheckCircle2, Circle } from "lucide-react"
 export function Roadmap() {
   const roadmapItems = [
     {
-      quarter: "Q4 2024",
+      quarter: "Q1 2025",
       title: "Protocol Launch",
       description: "Initial release with core lending functionality",
-      completed: true,
-    },
-    {
-      quarter: "Q1 2025",
-      title: "Mobile App",
-      description: "Native iOS and Android applications",
       completed: true,
     },
     {

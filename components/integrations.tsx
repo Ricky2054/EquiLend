@@ -1,15 +1,16 @@
 "use client"
 
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export function Integrations() {
   const integrations = [
-    { name: "Celo", logo: "🟢" },
-    { name: "MetaMask", logo: "🦊" },
-    { name: "Ledger", logo: "📱" },
-    { name: "Valora", logo: "💳" },
-    { name: "Uniswap", logo: "🦄" },
-    { name: "Aave", logo: "👻" },
+    { name: "Celo", logo: "/celo.png" },
+    { name: "MetaMask", logo: "/metamask.png" },
+    { name: "Ledger", logo: "/ledger.png" },
+    { name: "Valora", logo: "/valora.jpg" },
+    { name: "Uniswap", logo: "/uniswap.png" },
+    { name: "Aave", logo: "/aave.jpg" },
   ]
 
   const containerVariants = {
@@ -63,7 +64,15 @@ export function Integrations() {
               className="flex items-center justify-center p-6 rounded-xl border border-border bg-card hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-pointer group"
             >
               <div className="text-center">
-                <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">{integration.logo}</div>
+                <div className="mb-2 group-hover:scale-110 transition-transform flex justify-center">
+                  <Image
+                    src={integration.logo}
+                    alt={`${integration.name} logo`}
+                    width={32}
+                    height={32}
+                    className="rounded-lg"
+                  />
+                </div>
                 <div className="text-sm font-medium text-foreground/70">{integration.name}</div>
               </div>
             </motion.div>
