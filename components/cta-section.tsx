@@ -41,12 +41,12 @@ export function CTASection() {
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
-            Launch App
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white cursor-pointer">
+            Get Started
             <ArrowRight size={18} className="ml-2" />
           </Button>
-          <Button size="lg" variant="outline">
-            Schedule Demo
+          <Button size="lg" variant="outline" className="cursor-pointer">
+            Demo Video
           </Button>
         </motion.div>
       </motion.div>
