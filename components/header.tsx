@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -41,11 +42,9 @@ export function Header() {
 
         {/* CTA Button */}
         <div className="hidden md:flex gap-3">
+          <ThemeToggle />
           <Button variant="outline" size="sm">
             Connect Wallet
-          </Button>
-          <Button size="sm" className="bg-primary hover:bg-primary/90">
-            Launch App
           </Button>
         </div>
 
@@ -70,6 +69,9 @@ export function Header() {
               </Link>
             ))}
             <div className="pt-4 space-y-2 border-t border-border">
+              <div className="flex justify-center">
+                <ThemeToggle />
+              </div>
               <Button variant="outline" size="sm" className="w-full bg-transparent">
                 Connect Wallet
               </Button>
