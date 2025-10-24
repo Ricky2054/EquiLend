@@ -5,9 +5,23 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { useWallet } from "@/contexts/WalletContext"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const { address, isConnected, isLoading, connect, disconnect } = useWallet()
+
+  const truncateAddress = (addr: string) => {
+    return `${addr.slice(0, 6)}...${addr.slice(-4)}`
+  }
+
+  const handleWalletClick = () => {
+    if (isConnected) {
+      disconnect()
+    } else {
+      connect()
+    }
+  }
 
   const navItems = [
     { label: "How It Works", href: "#how-it-works" },
@@ -43,8 +57,18 @@ export function Header() {
         {/* CTA Button */}
         <div className="hidden md:flex gap-3">
           <ThemeToggle />
-          <Button variant="outline" size="sm">
-            Connect Wallet
+          <Button 
+            variant="outline" 
+            size="sm" 
+            onClick={handleWalletClick}
+            disabled={isLoading}
+          >
+            {isLoading 
+              ? "Connecting..." 
+              : isConnected && address 
+                ? truncateAddress(address)
+                : "Connect Wallet"
+            }
           </Button>
         </div>
 
@@ -72,8 +96,19 @@ export function Header() {
               <div className="flex justify-center">
                 <ThemeToggle />
               </div>
-              <Button variant="outline" size="sm" className="w-full bg-transparent">
-                Connect Wallet
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full bg-transparent"
+                onClick={handleWalletClick}
+                disabled={isLoading}
+              >
+                {isLoading 
+                  ? "Connecting..." 
+                  : isConnected && address 
+                    ? truncateAddress(address)
+                    : "Connect Wallet"
+                }
               </Button>
               <Button size="sm" className="w-full bg-primary hover:bg-primary/90">
                 Launch App
